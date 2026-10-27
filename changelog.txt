@@ -1,0 +1,233 @@
+---------------------------------------------------------------------------------------------------
+Version: 2.1.0
+Date: 2026-10-22
+  Changes:
+    - Local compatibility port for Factorio 2.1.23; retains the original mod identity and assets.
+    - Update fuel categories, recipe categories, crafter inventories and entity control APIs.
+    - Port ECCS fluid transfer with capacity checks and conservation of rejected coolant.
+    - Preserve reactor state during the 2.1 configuration migration and rebuild derived heat networks.
+  Bugfixes:
+    - Preserve robot module insertion/removal plans when SCRAM replaces a furnace.
+    - Avoid player-only startup messages on headless servers.
+    - Give generated fuel recipes an explicit display name.
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.27
+Date: 2025-08-01
+  Bugfixes:
+    - Fixed wrong icon size for control rods tech
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.26
+Date: 2025-03-23
+  Bugfixes:
+    - Prevent unexpected behaviour in case some mod messed the the vanilla heat interface
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.25
+Date: 2025-02-08
+  Changes:
+    - Rewrite of the neighbour check
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.24
+Date: 2025-01-28
+  Bugfixes:
+    - Compatible with 2.0.33 experimental
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.23
+Date: 2025-01-27
+  Bugfixes:
+    - Fixed a rare error caused by an unknown mod
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.22
+Date: 2025-01-04
+  Bugfixes:
+    - Fixed quality sarcophagi being unminable and they heal much faster (you still won't get anything back when you mine them..)
+    - Added some checks to make sure you'll be able to place the sarcophagus
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.21
+Date: 2025-01-02
+  Optimizations:
+    - polishing
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.20
+Date: 2025-01-02
+  Bugfixes:
+    - Fixed cooling towers not updating
+  Changes:
+    - Control rods are now much easier to understand and basically risk-free:
+    - They don't affect the internal Temperature anymore at all and you can even throttle the reactor.
+    - Added a setting to enable temperature effects again.
+    - Values go from -100 to +100
+    - Control rods need to be researched, since they are an advanced feature
+    - Updated ingo's formulas ("temperature sweetspot")
+    - My formulas are now called "hotter = better" (they are the default)
+    - Added several "tips-and-tricks" topics
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.19
+Date: 2025-01-01
+  Bugfixes:
+    - Fixed some NaN/Inf bugs and added a more helpful error message in case it's not fixed
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.18
+Date: 2024-12-30
+  Bugfixes:
+    - Fixed an error upon starting a new game
+    - Fixed reactor not unlocking with "transplutonic"
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.17
+Date: 2024-12-30
+  Optimizations:
+    - Performance overhaul: up to 40% lower ups cost, more linear scaling with reactor count and much better load balancing
+  Bugfixes:
+    - The temperature offset from control rods resets to 0 after the reactor has been shut down
+    - Reactors don't loose their modules on shutdown anymore
+    - Reactors don't loose their module requests on shutdown anymore
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.15
+Date: 2024-12-27
+  Bugfixes:
+    - More accurate cooling readouts
+    - Fixed reactor glow pulsing
+    - Fixed a bug with layered fuel cell icons
+  Changes:
+    - The items can be transported into orbit now
+    - Radioactivity glows at night
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.14
+Date: 2024-12-27
+  Changes:
+    - The overlay shows the temperature and control rod state now (has various settings)
+    - Reduced environmental cooling to -2MW (from 5)
+    - Added a cooling signal
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.13
+Date: 2024-12-26
+  Bugfixes:
+    - Fixed graphs not processing
+    - Fixed a migration error of a previous version
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.11
+Date: 2024-12-26
+  Changes:
+    - Reactors will show a selection box and the gui element's index when that is open
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.10
+Date: 2024-12-26
+  Bugfixes:
+    - Fixed a gui error when output item is not valid for read
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.9
+Date: 2024-12-26
+  Bugfixes:
+    - Verified that your bonus cells table does not contain infinite numbers
+    - Made a few divisors safe so you're less likely to get infinite numbers
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.8
+Date: 2024-12-26
+  Changes:
+    - Low temperatures affect the characteristics of the reactors too
+    - Instead of temperature-500, the formula is temperature/2 now
+    - Adjusted custom fuel properties for the mod "Bluetonium"
+    - Nerfed Thorium output and efficiency by 10% and reduced temperature penalty by 10%
+    - Fuel type now affects effectivity of productivity modules a bit (half impact)
+    - Added item tooltips to the guis
+    - More gui polishing
+    - Control rods can be controlled much faster at lower temperatures
+    - The core temperature from control rods doesn't drop immediately when you change them, but they move twice as fast now 
+    - This speed is affected by the control rod speed setting
+    - Control rods give a flat bonus on power output now
+  Bugfixes:
+    - Fixed an error indexing result_quality (a nil value)
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.7
+Date: 2024-12-26
+  Changes:
+    - Improved gui styles
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.6
+Date: 2024-12-25
+  Changes:
+    - Reactors can be started and scrammed by rotating the reactor interface
+  Bugfixes:
+    - Reactors work on the space platform now
+    - Added compatibility for "Quantum Fabricator"
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.5
+Date: 2024-12-25
+  Changes:
+    - The gui will show the second output slot and the most common item in the hidden output inventory (because the first slot is basically unused)
+    - Fixed some localisations
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.4
+Date: 2024-12-25
+  Changes:
+    - Inserting control rods is slower than pulling them out
+    - Control rods have 1000 steps instead of 100
+    - Newly built ECCS can hold and pump 10% more water per reactor quality level (caps at +100%)
+    - Added a render text above the reactors and a textfield in the gui to change the name
+    - Some gui changes
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.3
+Date: 2024-12-24
+  Bugfixes:
+    - Recipes are hidden now
+    - Fixed an error after scram
+    - The breeder reactor doesn't change visual appearance after scram anymore and glows in the correct color
+    - Fixed an error when scramming with the "decay heat" setting
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.2
+Date: 2024-12-24
+  Bugfixes:
+    - All reactors built in 2.0.1 needed to get recreated. Ideally you won't even notice this
+    - Inserters should work better now
+    - The reactor can keep operating for 3 seconds without any fuel
+    - The gui shows the correct quality's bonus progress now
+
+---------------------------------------------------------------------------------------------------
+Version: 2.0.1
+Date: 2024-12-16
+  Info:
+    - Re-release for factorio 2.0
+    - Based on RealisticReactors_2.18.14 (the last version i contributed to and am familiar with, since it got completely refactored and had several features removed afterwards)
+
+  Changes:
+    - Splitted the ECCS into 2 entities (because of new fluid system). The water flows from the fuller tank to the emptier one.
+    - Added a setting to cap out the eccs strength
+    - Removed fluid readouts. Just attach the wires to the tanks
+    - Reactor quality increases efficiency and power by 10% per level. Fuel quality increases efficiency by 10% per level (all multiplicative)
+    - Reactor quality increases max temperature by 10° per level. temperatures over 1000 will show as negative on the gui so the number doesn't get shortened
+    - The reactor won't immediately explode when it reaches max temperature, but disintegrate very quickly
+    - Halfed meltdown pollution
+    - Changed the frontend to a furnace to support modules. Modules have no negative effects and their strength can be adjusted in the settings (quality effectivity can not be changed due to how it's implemented)
+
+  Optimizations:
+    - Added sprites for every fuel cell and used fuel cell in every quality so they get displayed correctly in the gui
+    - It uses a single heat interface for heat generation now which doesn't need to be replaced every time the power output changes
+    - Both reactors have 2 output slots now (in case you manually fill them with different fuel cells)
+    - Everything has the prefix "RRR-" now, except signals (for *some* blueprint compatibility), gui elements and forces (radioactivity + radioactivity-strong)
+    - The cooling graph is smoother now
+
+  Bugfixes:
+    - The gui won't show parameters either when the electricity is low

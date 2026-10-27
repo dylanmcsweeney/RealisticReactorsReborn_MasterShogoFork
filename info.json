@@ -1,0 +1,12 @@
+{
+  "name": "RealisticReactorsReborn",
+  "version": "2.1.0",
+  "title": "Realistic Reactors Reborn",
+  "author": "OwnlyMe, IngoKnieto",
+  "description": "Meltdowns, control rods, emergency cooling, breeder reactors, modules, custom guis, etc...",
+  "homepage": "",
+  "factorio_version": "2.1",
+  "dependencies": [
+    "base >= 2.1.23"
+  ]
+}
