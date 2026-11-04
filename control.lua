@@ -108,7 +108,7 @@ script.on_init(function()
 	
 	storage.player_selections = {}
 	init_heat_pipes()
-	storage.version=25
+	storage.version=26
 	
 	for _,force in pairs (game.forces) do
 		if force.technologies["nuclear-power"].researched then

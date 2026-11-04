@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.1.1
+Date: 2026-11-04
+  Bugfixes:
+    - Clean up deleted surfaces and stale saved reactor records.
+    - Fix early fuel exhaustion, dynamic cooling power, module slots and complete heat-network rebuilds.
+    - Correct legacy reindexing and APM result prototype lookup.
+
+---------------------------------------------------------------------------------------------------
 Version: 2.1.0
 Date: 2026-10-22
   Changes:

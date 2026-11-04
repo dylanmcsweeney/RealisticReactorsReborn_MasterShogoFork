@@ -92,8 +92,11 @@ function init_heat_pipes()
 		end
 	end
 	for _, reactor in pairs(storage.reactors) do
+		reactor.connected_neighbours_IDs = {}
 		add_heat_pipe(reactor.core, reactor.id)
 	end
+	for id in pairs(storage.all_heat_pipes) do table.insert(storage.heatnet_changelog, id) end
+	register_update_connected_reactors_event()
 end
 
 function update_heatnet()

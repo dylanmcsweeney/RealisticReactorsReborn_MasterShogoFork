@@ -434,7 +434,7 @@ function update_reactor_temperature(index, update_event)
 		local remaining_fuel = burner.remaining_burning_fuel - fuel_consumption
 		local fuel_value = burner.fuel_value
 		
-		if remaining_fuel - fuel_consumption > 0 then
+		if remaining_fuel > 0 then
 			reactor.furnace.crafting_progress = 1-(remaining_fuel/math.max(1,fuel_value))--displayer.burner.remaining_burning_fuel = remaining_fuel - fuel_consumption
 		else
 			reactor.furnace.crafting_progress = 1
@@ -622,7 +622,7 @@ function update_reactor_temperature(index, update_event)
 				--cooling power consumption
 
 				--dynamic cooling power consumption
-				reactor.power_usage.cooling = math.floor(Tchange_reactor * cooling_mult * powerusagecooling / 60 / (time_passed/15))
+				reactor.power_usage.cooling = math.floor(math.abs(Tchange_reactor) * cooling_mult * powerusagecooling / 60 / (time_passed/15))
 				--cooling = cooling + reactor.power_usage.cooling*60/1000000/1* storage.settings["RRR-energy_consumption_multiplier"]
 	
 			end
@@ -928,7 +928,7 @@ function update_reactor_states(index, update_event)
 				
 				local result_swap = false
 				if burnt_result.name == "apm_fuel_cell_mox_used" then
-					burnt_result.name = prototype.item["apm_nuclear_breeder_uranium_inventory_enriched"]
+					burnt_result = prototypes.item["apm_nuclear_breeder_uranium_inventory_enriched"] or burnt_result
 					result_swap = true
 				end
 				local burn_duration = ((currently_burning.fuel_value/1000000)*(reactor_parameters.efficiency/100))/math.max(1,reactor_parameters.power)--*15/dt -- burn duration in ticks

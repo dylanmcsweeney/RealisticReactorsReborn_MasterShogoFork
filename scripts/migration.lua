@@ -53,7 +53,7 @@ script.on_configuration_changed(function()
 		for _, reactor in pairs(storage.reactors) do
 			new_reactors[reactor.id] = reactor
 		end
-		reactors = new_reactors
+		storage.reactors = new_reactors
 		storage.version = 14
 	end
 	if storage.version <15 then
@@ -183,7 +183,7 @@ script.on_configuration_changed(function()
 		end
 	end
 	
-	if storage.version < 25 then state.upgrade_2_1() end
+	if storage.version < 26 then state.upgrade_2_1() end
 	local recipe_blacklist = {
 		["RRR-realistic-reactor"] = true,
 		["RRR-breeder-reactor"] = true,

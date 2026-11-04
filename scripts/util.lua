@@ -114,7 +114,7 @@ function respawn_furnace(reactor)
 	local modules = {}
 	for i=1, #module_inventory do
 		if module_inventory[i] and module_inventory[i].valid_for_read then
-			table.insert(modules, {name = module_inventory[i].name, quality = module_inventory[i].quality})
+			modules[i] = {name = module_inventory[i].name, count = module_inventory[i].count, quality = module_inventory[i].quality}
 		end
 	end
 	local fp = reactor.furnace.position
@@ -130,8 +130,8 @@ function respawn_furnace(reactor)
 	reactor.furnace.destroy()
 	reactor.furnace = surface.create_entity{name = name, position = position, force = force, quality = quality}
 	reactor.furnace.disabled_by_script = true
-	for _, itemstack in pairs(modules) do
-		reactor.furnace.get_module_inventory().insert(itemstack)
+	for slot, itemstack in pairs(modules) do
+		reactor.furnace.get_module_inventory()[slot].set_stack(itemstack)
 	end
 	
 	if module_requests then
