@@ -1,7 +1,15 @@
-# RealisticReactorsReborn_MasterShogoFork
+# Realistic Reactors Reborn — MasterShogo Fork
 
-This is a first stab at making the Realistic Reactors Reborn mod for Factorio by OwnlyMe (https://mods.factorio.com/mod/RealisticReactorsReborn) work with Factorio 2.1. This is completely vibe coded with Codex and testing is minimal, so that that for what it's worth.
+An independent Factorio 2.1 compatibility fork of Realistic Reactors Reborn by OwnlyMe and IngoKnieto. Original credits and licenses are retained. This build adds direct adoption; complete script-state handoff is not implemented yet.
 
-That said, it appeared to correctly migrate a nuclear plant from a 2.0 save forward to 2.1.23, and then to 2.1.24, and it is working perfectly. This save was a pretty gnarly save as well. As soon as I can, I intend to make this a proper mod on the Factorio mod database and have it correctly interact with the original mod. I have no intention of trying to replace or steal credit from OwnlyMe's mod, which I absolutely love. Should OwnlyMe update the mod for 2.1 I will gladly help make transitioning back easy.
+## Switch an existing factory
 
-For now, in order to use this you will need to either download this entire directory and place it into the mods folder in your Factorio directory, or you can download the zip file from the releases and place it in there. I will update this README with any notable info.
+Back up your save. Install this ZIP, disable RealisticReactorsReborn and enable RealisticReactorsReborn_MasterShogoFork together before loading. Do not load/save with both mods disabled in between. The two mods are declared incompatible so only one reactor simulation runs.
+
+Existing buildings and items retain their prototype names. Reactors are adopted in place and stopped. Physical inventories, quality, modules, circuit connections, fuel progress, coolant and core temperatures are retained. Missing reactor helpers are created. Cooling towers, ruins, sarcophagi and existing fallout clouds are registered. Derived networks and GUI are rebuilt.
+
+Custom reactor names, timers, historical graphs, fractional bonuses and items held only in the previous mod's private hidden inventories cannot be recovered by direct adoption. Ruin timing uses fresh defaults. This path prioritizes retaining a usable factory, rather than exact operating state.
+
+The adoption dialog offers **Enable reactor controls** and **Keep stopped**. Enabling controls permits existing START circuit signals to restart the reactors. Use `/rrr-adoption` to reopen the dialog. Multiplayer acknowledgement requires an administrator. The lock persists across saves. Physical core temperatures are not reset; hot plants still need cooling.
+
+Save under a new name after checking your plant. You do not need to rebuild it. New games operate normally.

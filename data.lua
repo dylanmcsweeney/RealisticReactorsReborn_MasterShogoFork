@@ -1,4 +1,4 @@
-MOD_PATH = "__RealisticReactorsReborn__"
+MOD_PATH = "__RealisticReactorsReborn_MasterShogoFork__"
 
 reactor_collision_layer = "item"
 combinator_collision_layer = "blueprint-data"

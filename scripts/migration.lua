@@ -1,6 +1,8 @@
 local state = require("scripts.state")
+local adoption = require("scripts.adoption")
 script.on_configuration_changed(function()
 	state.ensure()
+	adoption.scan()
 
 	if storage.version <11 then
 		for _, reactor in pairs(storage.reactors) do

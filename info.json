@@ -1,12 +1,13 @@
 {
-  "name": "RealisticReactorsReborn",
-  "version": "2.1.1",
-  "title": "Realistic Reactors Reborn",
-  "author": "OwnlyMe, IngoKnieto",
+  "name": "RealisticReactorsReborn_MasterShogoFork",
+  "version": "2.1.2",
+  "title": "Realistic Reactors Reborn - MasterShogo Fork",
+  "author": "OwnlyMe, IngoKnieto, MasterShogo (just porting to 2.1)",
   "description": "Meltdowns, control rods, emergency cooling, breeder reactors, modules, custom guis, etc...",
-  "homepage": "",
+  "homepage": "https://github.com/dylanmcsweeney/RealisticReactorsReborn_MasterShogoFork",
   "factorio_version": "2.1",
   "dependencies": [
-    "base >= 2.1.23"
+    "base >= 2.1.23",
+    "! RealisticReactorsReborn"
   ]
 }

@@ -8,6 +8,7 @@ require "scripts.on_tick"
 require "scripts.util"
 require "scripts.construct_destruct"
 sttngs = require("settings")
+local adoption = require("scripts.adoption")
 -- VARIABLE DECLARATION
 TICKS_PER_UPDATE = 15 
 	-- each reactor and cooling tower gets updated once every 15 ticks (60 ticks = 1 s)
@@ -120,6 +121,7 @@ script.on_init(function()
 		end
 		--force.recipes["RRR-breeder-reactor"].enabled = true
 	end
+	adoption.scan()
 	--game.write_file("RealisticReactors.log"," ") -- this line cleans the log file on game start
 
 end)

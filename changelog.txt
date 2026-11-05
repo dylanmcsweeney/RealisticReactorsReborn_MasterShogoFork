@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.1.2
+Date: 2026-11-05
+  Features:
+    - Independent MasterShogo fork identity with direct adoption of existing RRR entities.
+    - Adopted reactors are stopped until controls are explicitly enabled in the adoption dialog.
+    - Preserve physical inventories, wiring, coolant, fuel progress and core temperatures.
+
+---------------------------------------------------------------------------------------------------
 Version: 2.1.1
 Date: 2026-11-04
   Bugfixes:

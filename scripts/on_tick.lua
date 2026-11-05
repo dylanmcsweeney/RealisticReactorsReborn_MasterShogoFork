@@ -737,7 +737,7 @@ function update_reactor_states(index, update_event)
 	if reactor_state == 0 then --off
 		if reactor.furnace.get_inventory(defines.inventory.crafter_input).is_empty() == false then
 			reactor.fuel_starvation = 0
-			if signal_start == true
+			if not reactor.adoption_locked and signal_start == true
 			and reactor.power.energy >= (POWER_USAGE_STARTING * TICKS_PER_UPDATE * 4 / 60* storage.settings["RRR-energy_consumption_multiplier"])
 			and signal_scram == false then
 				state_changed = true
@@ -1034,6 +1034,7 @@ end
 
 -- changes reactor state
 function change_reactor_state(new_state, reactor, update_event)
+    if new_state==1 and reactor.adoption_locked then return end
 	--logging("-> changing reactor state to: " .. new_state)
 	reactor.state = new_state
 	reactor.state_active_since = update_event.tick

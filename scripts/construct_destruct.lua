@@ -230,11 +230,22 @@ end)
 
 
 -- adds core, eccs, lamp, light, electric interface to the reactor core when it is build
-function add_reactor(furnace,interface)
+function add_reactor(furnace,interface,adopting)
+    local created={}
+    local function make(args)
+        if adopting then
+            local found=furnace.surface.find_entities_filtered{name=args.name,position=args.position,force=args.force}
+            assert(#found<=1,"RRR adoption: duplicate helper "..args.name)
+            if found[1] then return found[1] end
+        end
+        local e=assert(furnace.surface.create_entity(args),"RRR: could not create "..args.name)
+        created[e]=true
+        return e
+    end
 	local reactor_quality = furnace.quality.level
-	reactor_core = furnace.surface.create_entity{name = "RRR-realistic-reactor-heat", position = {furnace.position.x, furnace.position.y}, force = furnace.force.name}
+	reactor_core = make{name = "RRR-realistic-reactor-heat", position = {furnace.position.x, furnace.position.y}, force = furnace.force.name}
 	reactor_core.set_heat_setting{temperature = 0, mode = "add"}
-	reactor_core.temperature = 15
+	if created[reactor_core] then reactor_core.temperature = 15 end
 	--reactor is actually the reactor core
 	reactor_core.destructible = false
 	reactor_core.operable = false
@@ -247,7 +258,7 @@ function add_reactor(furnace,interface)
 	interface.minable_flag = false
 	local is_breeder = furnace.name == BREEDER_FURNACE_NAME
 	--logging("Reactor ID: " .. interface.unit_number)
-	local displayer = reactor_core.surface.create_entity
+	local displayer = make
 	{
 		name = is_breeder and BREEDER_DISPLAYER_NAME or REACTOR_DISPLAYER_NAME,
 		position = {x = reactor_core.position.x, y = reactor_core.position.y},
@@ -263,7 +274,7 @@ function add_reactor(furnace,interface)
 	if reactor_quality > 0 then
 		ECCS_AFFIX = "-"..math.min(reactor_quality,10)
 	end
-	local eccs_L = reactor_core.surface.create_entity
+	local eccs_L = make
 	{
 		name = ECCS_L_NAME..ECCS_AFFIX,
 		position = {x = reactor_core.position.x-1, y = reactor_core.position.y+1},
@@ -272,7 +283,7 @@ function add_reactor(furnace,interface)
 	eccs_L.operable = false 
 	eccs_L.destructible = false
 	eccs_L.minable_flag = false
-	local eccs_R = reactor_core.surface.create_entity
+	local eccs_R = make
 	{
 		name = ECCS_R_NAME..ECCS_AFFIX,
 		position = {x = reactor_core.position.x+1, y = reactor_core.position.y+1},
@@ -283,19 +294,19 @@ function add_reactor(furnace,interface)
 	eccs_R.minable_flag = false
 	
 	--add power entity
-	local power = reactor_core.surface.create_entity
+	local power = make
 	{
 		name = is_breeder and BREEDER_POWER_NAME or REACTOR_POWER_NAME,
 		position = reactor_core.position,
 		force = reactor_core.force
 	}
 	power.destructible=false
-	power.energy = math.max(0,(1.5-storage.settings["RRR-energy_consumption_multiplier"])) * 17000000
+	if created[power] then power.energy = math.max(0,(1.5-storage.settings["RRR-energy_consumption_multiplier"])) * 17000000 end
 	--add light
 	local reactor_lamp
 	local reactor_light
-	reactor_lamp = reactor_core.surface.create_entity{name = "RRR-black-lamp", position = {reactor_core.position.x+0.017,reactor_core.position.y+0.88}, force = reactor_core.force.name}
-	reactor_light = reactor_core.surface.create_entity{name = "RRR-black-light", position = {reactor_core.position.x+0.017,reactor_core.position.y+0.88}, force = reactor_core.force.name}
+	reactor_lamp = make{name = "RRR-black-lamp", position = {reactor_core.position.x+0.017,reactor_core.position.y+0.88}, force = reactor_core.force.name}
+	reactor_light = make{name = "RRR-black-light", position = {reactor_core.position.x+0.017,reactor_core.position.y+0.88}, force = reactor_core.force.name}
 
 	reactor_lamp.destructible = false
 	reactor_light.destructible = false
