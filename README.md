@@ -2,16 +2,18 @@
 
 An independent Factorio 2.1 compatibility fork of Realistic Reactors Reborn by OwnlyMe and IngoKnieto. Original credits and licenses are retained except I added my name for the 2.1 upgrade so as not to tarnish their reputation with my mistakes.
 
-AI and quality disclaimer:
-This upgrade was also written entirely with OpenAI Codex (GPT-6.1 Sol and GPT-6 Astra). I am a professional software developer, but I do not know LUA and I have never done a Factorio mod before. I also don't have time to actually do this myself and have not done significant code review yet. So use this with that understanding. Once I'm happy that I have a stable upgrade working, I do plan to dig through the code and ensure that I'm happy with everything there, but the point here is to get this thing working with 2.1 ASAP and it looks like it is working fine for that so far.
+**AI and quality disclaimer:**
+This upgrade was written entirely with OpenAI Codex (GPT-6.1 Sol and GPT-6 Astra). I am a long-time professional software developer, but I do not know LUA and I have never done a Factorio mod before. I also don't have time to actually do this myself and have not done significant code review yet. So use this with that understanding. Once I'm happy that I have a stable upgrade working, I do plan to dig through the code and ensure that I'm happy with everything there, but the point here is to get this thing working with 2.1 ASAP and it looks like it is working fine for that so far.
 
-Compatiblity:
+**Compatiblity:**
 It has been tested with Factorio v2.1.23 and 2.1.24 witha new Space Age game and an existing save file from Factorio v2.0, and v1 before that. That older save had Realistic Reactors, but also Space Exploration, Krastorio 2, Rampant Fixed, and a bunch of other mods. I have not encountered any errors yet. Please feel free to post about problems, though, and we can work through fixing them as I have the time.
 
-See the original mod page for additional information about Realistic Reactors, which is a really fun mod for people who want their reactors to be more difficult and controllable.
+See the original mod page for additional information about Realistic Reactors, which is a really fun mod for people who want their reactors to be more difficult and controllable:
+
 https://mods.factorio.com/mod/RealisticReactorsReborn
 
 See my github page for the repo and earlier builds:
+
 https://github.com/dylanmcsweeney/RealisticReactorsReborn_MasterShogoFork
 
 
