@@ -1,6 +1,10 @@
-# Realistic Reactors Reborn — MasterShogo Fork
+# Realistic Reactors Reborn - MasterShogo Fork
 
 An independent Factorio 2.1 compatibility fork of Realistic Reactors Reborn by OwnlyMe and IngoKnieto. Original credits and licenses are retained except I added my name for the 2.1 upgrade so as not to tarnish their reputation with my mistakes.
+
+*Also, I wanted to acknowledge the existence of this other upgrade fork by JoeWhizer:* https://mods.factorio.com/mod/RealisticReactorRebornPort
+
+*I decided to do my fork specifically because the other fork warns against using with existing save games and I specifically wanted that capability. Plus there appeared to be some users with errors. JoeWhizer is obviously totally welcome to rip anything out of mine that they like. I'm just trying to get this working well.*
 
 **AI and quality disclaimer:**
 This upgrade was written entirely with OpenAI Codex (GPT-6.1 Sol and GPT-6 Astra). I am a long-time professional software developer, but I do not know LUA and I have never done a Factorio mod before. I also don't have time to actually do this myself and have not done significant code review yet. So use this with that understanding. Once I'm happy that I have a stable upgrade working, I do plan to dig through the code and ensure that I'm happy with everything there, but the point here is to get this thing working with 2.1 ASAP and it looks like it is working fine for that so far.
